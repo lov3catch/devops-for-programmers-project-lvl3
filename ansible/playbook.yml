@@ -1,0 +1,12 @@
+---
+- hosts: all
+  roles:
+    - geerlingguy.docker
+    - geerlingguy.pip
+  tasks:
+    - name: Check connection
+      ping:
+    
+    - name: Update
+      ansible.builtin.apt:
+        update_cache: yes

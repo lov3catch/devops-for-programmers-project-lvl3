@@ -12,7 +12,7 @@ data "digitalocean_ssh_key" "my_ssh" {
 }
 
 resource "digitalocean_certificate" "cert" {
-  name    = "le-terraform-example"
+  name    = "le-terraform-cert"
   type    = "lets_encrypt"
   domains = ["botonarioum.one"]
 }
