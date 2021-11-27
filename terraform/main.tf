@@ -44,3 +44,9 @@ resource "digitalocean_database_db" "db-redmine" {
   cluster_id = digitalocean_database_cluster.db-cluster.id
   name       = "redmine"
 }
+
+output "db" {
+  value = {
+    "droplets" : digitalocean_droplet.web.*.ipv4_address
+  }
+}

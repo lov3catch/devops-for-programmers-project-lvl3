@@ -12,5 +12,3 @@ provider "digitalocean" {
 }
 
 variable "do_token" {}
-
-
