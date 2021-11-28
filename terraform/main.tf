@@ -45,8 +45,6 @@ resource "digitalocean_database_db" "db-redmine" {
   name       = "redmine"
 }
 
-output "db" {
-  value = {
-    "droplets" : digitalocean_droplet.web.*.ipv4_address
-  }
+output "droplet_ips" {
+  value = digitalocean_droplet.web.*.ipv4_address
 }

@@ -1,7 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/lov3catch/devops-for-programmers-project-lvl3/workflows/hexlet-check/badge.svg)](https://github.com/lov3catch/devops-for-programmers-project-lvl3/actions)
 
-[Ссылка на результат](botonarioum.one)
+[Ссылка на результат](http://botonarioum.one)
 
 #### Шаг №1
 - [X] Настройте Terraform Backend для хранения состояния в Terraform Cloud
@@ -16,7 +16,7 @@
 #### Шаг №2
 - [X] Опишите в Makefile команды подготовки и деплоя. В README.md напишите примеры использования этих команд
 - [X] Используйте ваш проект (любой), который уже упакован в образ Docker
-- [ ] Задеплойте проект с помощью Ansible на созданную инфраструктуру
+- [X] Задеплойте проект с помощью Ansible на созданную инфраструктуру
 - [X] Добавьте в README.md ссылку на задеплоенное приложение (домен, который указывает на балансировщик)
 
 #### Шаг №3
@@ -28,10 +28,13 @@
 
 #### Дополнительно
 - [ ] Бастион?
-- [ ] Автоматическое формирование hosts.ini
 - [ ] Отдельный пользователь для Docker
-- [ ] Создание инфраструктуры из ansible (через terraform)
 - [ ] Автоматическое формирование .env
+
+#### С какими проблемами столкнулся: 
+- Ansible не поддерживает именованые воркспейсы, так что пришлось сменить на префикс [info](https://github.com/ansible/ansible/issues/59089)
+- Ansible не поддерживает remote execution, так что пришлось переключить на local в Terraform Cloud [info](https://discuss.hashicorp.com/t/saving-a-generated-plan-is-currently-not-supported/2116)
+
 
 ### Запуск
 1. DO token - положить в DO cloud

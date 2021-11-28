@@ -4,7 +4,7 @@ terraform {
     organization = "botonarioum"
 
     workspaces {
-      name = "hexlet-homework"
+      prefix = "hexlet-"
     }
   }
 }

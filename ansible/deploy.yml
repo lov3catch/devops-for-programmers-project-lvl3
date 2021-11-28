@@ -1,20 +1,4 @@
 ---
-- hosts: localhost
-  connection: local
-  tasks:
-    - name: Prepare infrasctucture
-      community.general.terraform:
-        project_path: '../terraform/'
-        state: present
-        variables:
-          do_token: "{{ VAULT_DO_TOKEN }}"
-        workspace: homework
-      register: infrastructure
-
-    - name: Echo infrastructure
-      debug:
-        var: infrastructure
-
 - hosts: all
   roles:
     - geerlingguy.docker
@@ -22,7 +6,7 @@
   tasks:
     - name: Check connection
       ping:
-
+    
     - name: Update
       ansible.builtin.apt:
         update_cache: yes

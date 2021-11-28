@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Prepare infrasctucture
+      community.general.terraform:
+        project_path: '../terraform/'
+        state: present
+        variables:
+          do_token: "{{ VAULT_DO_TOKEN }}"
+        workspace: homework
+      register: infrastructure
+    
+    - name: Echo infrastructure
+      debug:
+        var: infrastructure
+    
+    - name: Render hosts.ini
+      template:
+        src: hosts.j2
+        dest: hosts.ini
