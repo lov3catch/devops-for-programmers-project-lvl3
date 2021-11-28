@@ -48,3 +48,14 @@ resource "digitalocean_database_db" "db-redmine" {
 output "droplet_ips" {
   value = digitalocean_droplet.web.*.ipv4_address
 }
+
+output "database" {
+  sensitive = true
+  value = {
+    user     = digitalocean_database_cluster.db-cluster.user
+    password = digitalocean_database_cluster.db-cluster.password
+    port     = digitalocean_database_cluster.db-cluster.port
+    database = digitalocean_database_cluster.db-cluster.database
+    host     = digitalocean_database_cluster.db-cluster.host
+  }
+}
