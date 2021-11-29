@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
-  connection: local
   tasks:
     - name: Prepare infrasctucture
       community.general.terraform:
@@ -11,9 +10,10 @@
         workspace: homework
       register: infrastructure
 
-    - name: Echo infrastructure
-      debug:
-        var: infrastructure
+    - name: Render hosts.ini
+      template:
+        src: hosts.j2
+        dest: hosts.ini
 
 - hosts: all
   roles:
@@ -36,8 +36,8 @@
         ports:
           - "80:3000"
         env:
-          REDMINE_DB_POSTGRES: "{{ VAULT_REDMINE_DB_POSTGRES }}"
-          REDMINE_DB_USERNAME: "{{ VAULT_REDMINE_DB_USERNAME }}"
-          REDMINE_DB_PASSWORD: "{{ VAULT_REDMINE_DB_PASSWORD }}"
-          REDMINE_DB_DATABASE: "{{ VAULT_REDMINE_DB_DATABASE }}"
-          REDMINE_DB_PORT: "{{ VAULT_REDMINE_DB_PORT }}"
+          REDMINE_DB_POSTGRES: "{{ hostvars.localhost.infrastructure.outputs.database.value.host }}"
+          REDMINE_DB_USERNAME: "{{ hostvars.localhost.infrastructure.outputs.database.value.user }}"
+          REDMINE_DB_PASSWORD: "{{ hostvars.localhost.infrastructure.outputs.database.value.password }}"
+          REDMINE_DB_DATABASE: "{{ hostvars.localhost.infrastructure.outputs.database.value.database }}"
+          REDMINE_DB_PORT: "{{ hostvars.localhost.infrastructure.outputs.database.value.port }}"
