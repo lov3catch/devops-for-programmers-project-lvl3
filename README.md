@@ -20,22 +20,17 @@
 - [X] Добавьте в README.md ссылку на задеплоенное приложение (домен, который указывает на балансировщик)
 
 #### Шаг №3
-- [ ] Установите с помощью Ansible агент DataDog на машины
-- [ ] Создайте Alert в DataDog используя Terraform. Он должен проверять насколько приложение "живое" выполняя HTTP запросы к экземпляру приложения на своем сервере
+- [X] Установите с помощью Ansible агент DataDog на машины
+- [X] Создайте Alert в DataDog используя Terraform. Он должен проверять насколько приложение "живое" выполняя HTTP запросы к экземпляру приложения на своем сервере
 
 #### Шаг №4
-- [ ] [Зарегистрируйтесь](https://www.freshworks.com/website-monitoring/signup/) в сервисе Freshping и добавьте в мониторинг страницу с вашим проектом
+- [X] [Зарегистрируйтесь](https://www.freshworks.com/website-monitoring/signup/) в сервисе Freshping и добавьте в мониторинг страницу с вашим проектом
 
 #### Дополнительно
 - [ ] Бастион?
 - [ ] Отдельный пользователь для Docker
-- [ ] Брать переменные для БД из output
+- [ ] Обновить ридми
 
 #### С какими проблемами столкнулся: 
 - Ansible не поддерживает именованые воркспейсы, так что пришлось сменить на префикс [info](https://github.com/ansible/ansible/issues/59089)
 - Ansible не поддерживает remote execution, так что пришлось переключить на local в Terraform Cloud [info](https://discuss.hashicorp.com/t/saving-a-generated-plan-is-currently-not-supported/2116)
-
-
-### Запуск
-1. DO token - положить в DO cloud
-2. make prepare-infra
