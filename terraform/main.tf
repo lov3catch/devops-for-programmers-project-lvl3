@@ -59,3 +59,16 @@ output "database" {
     host     = digitalocean_database_cluster.db-cluster.host
   }
 }
+
+resource "datadog_monitor" "http-check-new" {
+  name    = "Http check new updated"
+  type    = "service check"
+  message = "Service unavailable"
+  query = "\"datadog.agent.up\".over(\"*\").by(\"host\").last(2).count_by_status()"
+
+  notify_no_data    = true
+  renotify_interval = 60
+  notify_audit = false
+  timeout_h    = 60
+  include_tags = true
+}

@@ -7,6 +7,8 @@
         state: present
         variables:
           do_token: "{{ VAULT_DO_TOKEN }}"
+          dd_api_key: "{{ VAULT_DD_API_KEY }}"
+          dd_app_key: "{{ VAULT_DD_APP_KEY }}"
         workspace: homework
       register: infrastructure
 
@@ -17,8 +19,12 @@
 
 - hosts: all
   roles:
-    - geerlingguy.docker
-    - geerlingguy.pip
+    - { role: geerlingguy.docker }
+    - { role: geerlingguy.pip }
+    - { role: datadog.datadog, become: yes }
+  vars:
+    datadog_api_key: "245fea817478a3583bb69842cb012d6c"
+    datadog_site: "datadoghq.com"
   tasks:
     - name: Check connection
       ping:

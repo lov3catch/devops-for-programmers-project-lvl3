@@ -4,6 +4,9 @@ terraform {
       source  = "digitalocean/digitalocean"
       version = "~> 2.0"
     }
+    datadog = {
+      source = "DataDog/datadog"
+    }
   }
 }
 
@@ -11,4 +14,11 @@ provider "digitalocean" {
   token = var.do_token
 }
 
+provider "datadog" {
+  api_key = var.dd_api_key 
+  app_key = var.dd_app_key
+}
+
 variable "do_token" {}
+variable "dd_api_key" {}
+variable "dd_app_key" {}

@@ -8,9 +8,11 @@ tf-apply:
 	terraform -chdir=terraform apply
 
 ansible-encrypt-vault:
+	ansible-vault encrypt --vault-password-file vault-password ansible/group_vars/webservers/vault.yml
 	ansible-vault encrypt --vault-password-file vault-password ansible/host_vars/localhost/vault.yml
 
 ansible-decrypt-vault:
+	ansible-vault encrypt --vault-password-file vault-password ansible/group_vars/webservers/vault.yml
 	ansible-vault decrypt --vault-password-file vault-password ansible/host_vars/localhost/vault.yml
 
 ansible-install-deps:
