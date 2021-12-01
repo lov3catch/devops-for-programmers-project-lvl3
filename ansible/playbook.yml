@@ -5,10 +5,6 @@
       community.general.terraform:
         project_path: '../terraform/'
         state: present
-        variables:
-          do_token: "{{ VAULT_DO_TOKEN }}"
-          dd_api_key: "{{ VAULT_DD_API_KEY }}"
-          dd_app_key: "{{ VAULT_DD_APP_KEY }}"
         workspace: homework
       register: infrastructure
 
