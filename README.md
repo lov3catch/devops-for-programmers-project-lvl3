@@ -34,3 +34,7 @@
 #### С какими проблемами столкнулся: 
 - Ansible не поддерживает именованые воркспейсы, так что пришлось сменить на префикс [info](https://github.com/ansible/ansible/issues/59089)
 - Ansible не поддерживает remote execution, так что пришлось переключить на local в Terraform Cloud [info](https://discuss.hashicorp.com/t/saving-a-generated-plan-is-currently-not-supported/2116)
+
+export TF_VAR_do_token=xxx
+export TF_VAR_dd_api_key=xxx
+export TF_VAR_dd_app_key=xxx

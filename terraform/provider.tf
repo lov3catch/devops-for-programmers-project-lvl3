@@ -15,10 +15,6 @@ provider "digitalocean" {
 }
 
 provider "datadog" {
-  api_key = var.dd_api_key 
-  app_key = var.dd_app_key
+  api_key = var.datadog_api_key
+  app_key = var.datadog_app_key
 }
-
-variable "do_token" {}
-variable "dd_api_key" {}
-variable "dd_app_key" {}
