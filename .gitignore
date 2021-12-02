@@ -1,5 +1,6 @@
 .idea
 terraform/.terraform
 doc
+terraform/secret.auto.tfvars
 ansible/hosts.ini
 terraform/terraform.tfvars
