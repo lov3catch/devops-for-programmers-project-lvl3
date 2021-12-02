@@ -4,11 +4,11 @@ variable "do_token" {
 }
 
 variable "datadog_api_key" {
-  description = "DD app key"
+  description = "DD api key"
   type        = string
 }
 
 variable "datadog_app_key" {
-  description = "DD api key"
+  description = "DD app key"
   type        = string
 }
