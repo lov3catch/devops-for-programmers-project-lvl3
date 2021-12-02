@@ -1,6 +1,5 @@
 .idea
 terraform/.terraform
-terraform/.terraform.lock.hcl
 doc
 ansible/hosts.ini
 terraform/terraform.tfvars
