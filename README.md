@@ -35,6 +35,29 @@
 - Ansible не поддерживает именованые воркспейсы, так что пришлось сменить на префикс [info](https://github.com/ansible/ansible/issues/59089)
 - Ansible не поддерживает remote execution, так что пришлось переключить на local в Terraform Cloud [info](https://discuss.hashicorp.com/t/saving-a-generated-plan-is-currently-not-supported/2116)
 
-export TF_VAR_do_token=xxx
-export TF_VAR_dd_api_key=xxx
-export TF_VAR_dd_app_key=xxx
+## Запуск
+- Ansible: v2.11
+- Python: v3.9
+- Terraform: v1.0
+
+### Создайте файл-секрет для Ansible и положите туда vault-пароль 
+> touch vault-password
+
+### Создайте файл с секретными переменными для Terraform
+> touch terraform/secret.auto.tfvars
+
+#### Пример содержимого файла terraform/secret.auto.tfvars
+do_token="a5070c21715636ec1e8877f2d4fabe0b8e0f82700568d13a5865432f82c9404"
+datadog_api_key="245fea81478a3583bb69842cb012d6c"
+datadog_app_key="a0863207b32501b9ed86f58d91b3bec97758703"
+
+### Готовим инфраструктуру:
+> make tf-apply
+
+### Готовим сервера:
+> make ansible-deploy
+
+### Для расшифровки/зашифровки vault - используйте команды
+> make ansible-encrypt-vault
+
+> ansible-decrypt-vault
