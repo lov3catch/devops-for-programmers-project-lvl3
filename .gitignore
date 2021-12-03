@@ -3,3 +3,4 @@ terraform/.terraform
 doc
 terraform/secret.auto.tfvars
 terraform/terraform.tfvars
+vault-password
