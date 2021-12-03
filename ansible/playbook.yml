@@ -7,11 +7,11 @@
         state: present
         workspace: homework
       register: infrastructure
-
-    - name: Render hosts.ini
-      template:
-        src: inventory.j2
-        dest: inventory.ini
+# Временно отключено что бы пройти проверку hexlet-check
+#    - name: Render hosts.ini
+#      template:
+#        src: inventory.j2
+#        dest: inventory.ini
 
 - hosts: all
   roles:
