@@ -10,8 +10,8 @@
 
     - name: Render hosts.ini
       template:
-        src: hosts.j2
-        dest: hosts.ini
+        src: inventory.j2
+        dest: inventory.ini
 
 - hosts: all
   roles:

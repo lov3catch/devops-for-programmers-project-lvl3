@@ -11,4 +11,4 @@ ansible-install-deps:
 	ansible-galaxy install -r ansible/requirements.yml
 
 ansible-deploy:
-	ansible-playbook -vv -i ansible/hosts.ini ansible/playbook.yml
+	ansible-playbook -vv -i ansible/inventory.ini ansible/playbook.yml
