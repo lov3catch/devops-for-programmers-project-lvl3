@@ -13,7 +13,7 @@
 #        src: inventory.j2
 #        dest: inventory.ini
 
-- hosts: wevservers
+- hosts: webservers
   roles:
     - { role: geerlingguy.docker }
     - { role: geerlingguy.pip }
