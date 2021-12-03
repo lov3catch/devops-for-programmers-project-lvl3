@@ -41,7 +41,7 @@
 - Terraform: v1.0
 
 ### Создайте файл-секрет для Ansible и положите туда vault-пароль 
-> touch vault-password
+> make create-vault-pass-file
 
 ### Создайте файл с секретными переменными для Terraform
 > touch terraform/secret.auto.tfvars

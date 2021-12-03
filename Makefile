@@ -7,6 +7,9 @@ tf-plan:
 tf-apply:
 	terraform -chdir=terraform apply
 
+create-vault-pass-file:
+	touch vault-password
+
 ansible-encrypt-vault:
 	ansible-vault encrypt --vault-password-file vault-password ansible/group_vars/webservers/vault.yml
 
