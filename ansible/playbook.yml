@@ -1,12 +1,12 @@
 ---
-- hosts: localhost
-  tasks:
-    - name: Prepare infrasctucture
-      community.general.terraform:
-        project_path: '../terraform/'
-        state: present
-        workspace: homework
-      register: infrastructure
+#- hosts: localhost
+#  tasks:
+#    - name: Prepare infrasctucture
+#      community.general.terraform:
+#        project_path: '../terraform/'
+#        state: present
+#        workspace: homework
+#      register: infrastructure
 # Временно отключено что бы пройти проверку hexlet-check
 #    - name: Render hosts.ini
 #      template:
