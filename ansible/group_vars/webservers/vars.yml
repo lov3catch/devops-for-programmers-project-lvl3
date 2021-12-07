@@ -2,3 +2,8 @@ pip_install_packages:
   - name: docker
 datadog_api_key: "{{ VAULT_DATADOG_API_KEY }}"
 datadog_site: "datadoghq.com"
+redmine_db_postgres: "{{ VAULT_REDMINE_DB_POSTGRES }}"
+redmine_db_username: "{{ VAULT_REDMINE_DB_USERNAME }}"
+redmine_db_password: "{{ VAULT_REDMINE_DB_PASSWORD }}"
+redmine_db_database: "{{ VAULT_REDMINE_DB_DATABASE }}"
+redmine_db_port: "{{ VAULT_REDMINE_DB_PORT }}"
