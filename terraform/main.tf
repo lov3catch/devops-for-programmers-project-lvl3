@@ -11,10 +11,21 @@ data "digitalocean_ssh_key" "my_ssh" {
   name = "macbook"
 }
 
-resource "digitalocean_certificate" "cert" {
-  name    = "le-terraform-cert"
+resource "digitalocean_record" "dns-record" {
+  domain = digitalocean_domain.boto-domain.name
+  name   = "@"
+  type   = "A"
+  value  = digitalocean_loadbalancer.balancer.ip
+}
+
+resource "digitalocean_certificate" "lb-cert-boto" {
+  name    = "le-terraform-cert-lb"
   type    = "lets_encrypt"
-  domains = ["botonarioum.one"]
+  domains = [digitalocean_domain.boto-domain.name]
+}
+
+resource "digitalocean_domain" "boto-domain" {
+  name = "botonarioum.one"
 }
 
 resource "digitalocean_loadbalancer" "balancer" {
@@ -25,7 +36,7 @@ resource "digitalocean_loadbalancer" "balancer" {
     entry_protocol   = "http"
     target_port      = 80
     target_protocol  = "http"
-    certificate_name = digitalocean_certificate.cert.name
+    certificate_name = digitalocean_certificate.lb-cert-boto.name
   }
 
   droplet_ids = digitalocean_droplet.web.*.id
